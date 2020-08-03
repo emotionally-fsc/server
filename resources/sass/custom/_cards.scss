@@ -1,0 +1,107 @@
+/*!
+ * This file is part of Emotionally.
+ *
+ * Emotionally is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Emotionally is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Emotionally.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+.project-detail-card {
+    position: relative;
+    cursor: pointer;
+
+    @extend .el-2dp;
+
+    &:hover, &:focus {
+        @extend .el-8dp;
+    }
+
+
+    &.square {
+        width: 100%;
+        padding-bottom: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .project-card-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+    }
+
+    .card-title {
+        margin: 0;
+    }
+
+    .project-detail-card-title {
+        top: unset;
+        bottom: 0;
+        text-align: center;
+    }
+
+    .project-detail-card-options {
+        top: 0;
+        bottom: unset;
+        text-align: right;
+    }
+
+
+    .bg-video-placeholder-container {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        border-radius: 0.25rem;
+
+        .bg-video-placeholder {
+            position: absolute;
+            height: 130%;
+            width: 130%;
+            left: -15%;
+            top: -15%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px);
+            opacity: 0.5;
+        }
+    }
+
+    .folder-background::before {
+        opacity: 0.75;
+        font-size: 4rem;
+        position: absolute;
+        font-family: 'Font Awesome 5 Free', fantasy;
+        font-weight: 400;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: "\f07b";
+    }
+
+    .video-background::before {
+        opacity: 0.75;
+        font-size: 4rem;
+        position: absolute;
+        font-family: 'Font Awesome 5 Free', fantasy;
+        font-weight: 900;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: "\f03d";
+    }
+}

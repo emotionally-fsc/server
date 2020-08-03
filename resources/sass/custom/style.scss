@@ -1,0 +1,145 @@
+/*!
+ * This file is part of Emotionally.
+ *
+ * Emotionally is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Emotionally is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Emotionally.  If not, see <http://www.gnu.org/licenses/>.
+ */
+// Some accessibility classes
+@import "_accessibility";
+@import "_sidebar";
+@import "_cards";
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-weight: 800;
+    color: white;
+}
+
+.breadcrumb-container {
+    @extend .d-block;
+    @extend .d-md-inline;
+    @extend .ml-0;
+    @extend .ml-md-4;
+
+    .breadcrumb {
+        @extend .p-0;
+        @extend .m-0;
+        @extend .d-inline;
+
+        .breadcrumb-item {
+            @extend .d-inline;
+        }
+    }
+}
+
+.btn {
+    &.btn-md-text {
+        @extend .btn-outline-primary;
+        @extend .text-uppercase;
+        @extend .text-decoration-none;
+        @extend .border-0;
+        box-shadow: none;
+
+        font-weight: 500;
+
+        &:focus {
+            @extend .btn-outline-primary;
+        }
+    }
+
+    &.btn-md-text-danger {
+        @extend .btn-outline-danger;
+        @extend .text-uppercase;
+        @extend .text-decoration-none;
+        @extend .border-0;
+        box-shadow: none;
+
+        font-weight: 500;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &:focus {
+            @extend .btn-outline-danger;
+        }
+    }
+
+    &.btn-md-text-white {
+        @extend .btn-outline-light;
+        @extend .text-uppercase;
+        @extend .text-decoration-none;
+        @extend .border-0;
+        box-shadow: none;
+
+        font-weight: 500;
+        color: unset;
+
+        &:focus {
+            @extend .btn-outline-light;
+        }
+    }
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.dropdown.more-icon button::after {
+    content: none;
+}
+
+.team-member {
+    img {
+        max-width: 256px;
+    }
+
+    a[target="_blank"] {
+        &:after {
+            content: "";
+        }
+
+        &:hover {
+            border: 0;
+        }
+    }
+}
+
+.emojis {
+    color: white;
+    font-size: 2em;
+}
+
+.smaller-charts {
+    height: 35vh;
+    position: relative;
+}
+
+.bigger-charts {
+    height: 50vh;
+    position: relative;
+}

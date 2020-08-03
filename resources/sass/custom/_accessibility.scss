@@ -1,0 +1,78 @@
+/*!
+ * This file is part of Emotionally.
+ *
+ * Emotionally is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Emotionally is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Emotionally.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+.skip-navigation {
+    @include sr-only;
+    @include sr-only-focusable;
+    @extend .btn;
+    @extend .btn-primary;
+    @extend .p-3;
+    position: absolute !important;
+    z-index: $zindex-fixed + 1;
+    color: white;
+    background-color: black;
+
+    &:active, &:focus {
+        color: white;
+        background-color: black;
+    }
+}
+
+a, .btn-link {
+    text-decoration: underline;
+
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+
+    &:focus {
+        border: 1px solid rgba($primary, 0.75);
+    }
+
+    #main-navigation &, .breadcrumb &, .dropdown-menu & {
+        text-decoration: none;
+
+        &:hover, &:focus {
+            border: none;
+            text-decoration: underline;
+        }
+    }
+
+    &[target='_blank']::after {
+        font-weight: 900;
+        font-family: "Font Awesome 5 Free", fantasy;
+        font-size: xx-small;
+        content: '\f35d';
+        vertical-align: super;
+        margin-left: .5em;
+    }
+}
+
+// The following hash map contains, for each font size level, the base font size.
+$accessibility-font-sizes: (
+    "xs": 60%,
+    "s": 80%,
+    "m": initial,
+    "l": 120%,
+    "xl": 140%,
+);
+
+@each $size, $value in $accessibility-font-sizes {
+    .font-size-#{$size} {
+        font-size: $value !important;
+    }
+}

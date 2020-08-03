@@ -1,0 +1,80 @@
+{
+    "name": "fsc/emotionally",
+    "type": "project",
+    "description": "A system capable of detecting and analyzing emotions thanks to Affectiva's cloud-based APIs.",
+    "keywords": [
+        "emotionally",
+        "affectiva",
+        "laravel",
+        "bootstrap",
+        "php",
+        "jquery",
+        "exam",
+        "uniba",
+        "fsc"
+    ],
+    "readme": "../README.md",
+    "license": "GPL-3.0-only",
+    "require": {
+        "php": "^7.3",
+        "ext-json": "*",
+        "fideloper/proxy": "^4.2",
+        "james-heinrich/getid3": "^1.9",
+        "laravel/framework": "^7.0",
+        "laravel/tinker": "^2.0",
+        "phpoffice/phppresentation": "^0.9.0",
+        "phpoffice/phpspreadsheet": "^1.10"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.6",
+        "beyondcode/laravel-dump-server": "^1.4",
+        "filp/whoops": "^2.0",
+        "fzaninotto/faker": "^1.9.1",
+        "laravel/dusk": "^5.9",
+        "laravel/ui": "^2.0",
+        "mockery/mockery": "^1.3.1",
+        "nunomaduro/collision": "^4.1",
+        "phpunit/phpunit": "^9.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "autoload": {
+        "files": [
+            "app/Http/Controllers/ReportFormatters/helpers.php"
+        ],
+        "psr-4": {
+            "Emotionally\\": "app/"
+        },
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    }
+}

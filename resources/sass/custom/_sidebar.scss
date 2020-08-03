@@ -1,0 +1,201 @@
+/*!
+ * This file is part of Emotionally.
+ *
+ * Emotionally is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Emotionally is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Emotionally.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    color: #fff;
+    transition: all 0.3s;
+    overflow-y: auto;
+
+    .scroll-element {
+        z-index: 1000;
+    }
+
+    .sidebar-header {
+        padding: 20px;
+    }
+
+    ul {
+        &.components {
+            padding: 20px 0;
+        }
+
+        p {
+            color: #fff;
+            padding: 10px;
+        }
+
+        .nav-item {
+            border-radius: 5px;
+
+            ul > li {
+                margin-left: 1.5rem;
+            }
+
+            a {
+                color: rgba(255, 255, 255, 0.8) !important;
+                text-decoration: none;
+
+                &:hover, &:focus {
+                    text-decoration: none;
+                }
+            }
+
+            &:hover {
+                background-color: rgba($primary, 0.03);
+            }
+
+            .nav-link {
+                padding: 10px;
+                font-size: 1.1em;
+                display: block;
+            }
+
+            &.active {
+                background-color: rgba($primary, 0.08);
+
+                & > .nav-link {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    & > .nav > .nav-item {
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
+
+        & > .nav-link, & > .btn-group > .nav-link {
+            padding: 20px;
+
+            &.collapse-button {
+                padding-right: 5px;
+            }
+        }
+    }
+
+    .collapse-button {
+        & + .nav-link .project-sidebar-icon {
+            @extend .fas;
+        }
+
+        &[aria-expanded="false"] + .nav-link .project-sidebar-icon {
+            @extend .fa-folder;
+        }
+
+        &[aria-expanded="true"] + .nav-link .project-sidebar-icon {
+            @extend .fa-folder-open;
+        }
+    }
+
+    .collapse-button-container {
+        width: 100%;
+
+        & > a:not(.collapse-button) {
+            width: 100%;
+        }
+
+        @include media-breakpoint-up(md) {
+            & > a:not(.collapse-button) {
+                padding-left: 5px !important;
+            }
+        }
+
+        .collapse-button {
+            &::before {
+                font-family: "Font Awesome 5 Free", fantasy;
+                font-weight: 900;
+                margin-inline-end: 5px;
+            }
+
+            &[aria-expanded="false"]::before {
+                content: "\f054";
+            }
+
+            &[aria-expanded="true"]::before {
+                content: "\f078";
+            }
+
+            @include media-breakpoint-down(md) {
+                &.hide-xs-icon {
+                    padding-right: 20px !important;
+                    width: 100% !important;
+                    text-align: center;
+
+                    &::before {
+                        content: unset;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sidebar-content {
+    width: calc(100% - 250px);
+    overflow-x: hidden;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.sidebar-brand {
+    display: inline-block;
+    padding-top: 0.32rem;
+    padding-bottom: 0.32rem;
+    /* margin-right: 1rem; */
+    font-size: 1.125rem;
+    line-height: inherit;
+    white-space: nowrap;
+
+    img {
+        transition: width 0.5s ease, height 0.5s ease;
+    }
+}
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@include media-breakpoint-down(sm) {
+    .sidebar {
+        margin-left: 0;
+        width: 70px;
+    }
+
+    .sidebar-content {
+        width: calc(100% - 70px);
+    }
+
+    .sidebar-brand img {
+        width: 30px;
+        height: 30px;
+    }
+}

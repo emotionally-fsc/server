@@ -1,0 +1,47 @@
+/*!
+ * This file is part of Emotionally.
+ *
+ * Emotionally is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Emotionally is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Emotionally.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+// Body
+$body-bg: #121212;
+$body-color: rgba(255, 255, 255, 0.6); // From https://material.io/design/color/dark-theme.html#ui-application
+
+// Elevation levels (from https://material.io/design/color/dark-theme.html#properties)
+// The following hash map contains, for each elevation level, the opacity of the white layer that should be put over
+// the background color.
+$elevations: (
+        "0dp": 0%,
+        "1dp": 5%,
+        "2dp": 7%,
+        "3dp": 8%,
+        "4dp": 9%,
+        "6dp": 11%,
+        "8dp": 12%,
+        "12dp": 14%,
+        "16dp": 15%,
+        "24dp": 16%
+);
+
+@each $elevation, $opacity in $elevations {
+  .el-#{$elevation} {
+    background-color: mix(white, $body-bg, $opacity) !important;
+  }
+}
+
+
+.border.border-text{
+    border-color: $body-color !important;
+}
